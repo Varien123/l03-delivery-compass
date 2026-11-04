@@ -1,0 +1,828 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-11-04T16:29:55+08:00",
+    "dataThrough": "2026-11-04",
+    "nextReview": "2026-11-05T09:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "title": "L03 交付罗盘",
+    "subtitle": "私人提车预测 · 非官方",
+    "disclaimer": "本工具是个人决策辅助，不是小鹏官方交付承诺。所有日期均为概率估计，实际以交付顾问通知和 APP 状态为准。"
+  },
+  "order": {
+    "id": "cd-20261101-l03",
+    "model": "小鹏 MONA L03",
+    "trim": "超级增程 1330 Max",
+    "trimShort": "增程 1330 Max",
+    "color": "新月银",
+    "wheels": "18 英寸低风阻",
+    "city": "成都",
+    "lockedAt": "2026-11-01",
+    "appWindowWeeks": [
+      11,
+      16
+    ],
+    "appQuotedAt": "2026-11-01",
+    "note": "小鹏汽车 APP 显示等待周期 11–16 周"
+  },
+  "model": {
+    "version": "1.0.0",
+    "confidence": 0.64,
+    "official": {
+      "lowWeeks": 11,
+      "highWeeks": 16,
+      "weight": 0.55
+    },
+    "cohort": {
+      "meanWeeks": 12.6,
+      "weight": 0.25,
+      "sampleSize": 4,
+      "note": "已完成 L03 样本 3 条；其中 1 条动力未披露，仅作上限参考"
+    },
+    "capacity": {
+      "meanWeeks": 13.1,
+      "weight": 0.2,
+      "referenceOutput": 22000,
+      "note": "以 L03 月交付 2.2 万台为中性假设；产能每少 1,000 台/月，周期约 +0.15 周"
+    },
+    "adjustments": {
+      "colorWeeks": -0.15,
+      "cityWeeks": 0.1,
+      "exportWeeks": 0.2,
+      "l05Weeks": -0.15,
+      "note": "银色/紫色为早期排产优先色（社区口径）；成都属正常物流城市；出口分流为风险项；L05 独立产线为缓释项"
+    },
+    "mixture": {
+      "preWeight": 0.58,
+      "preMeanWeeks": 12.25,
+      "postMeanWeeks": 15.9,
+      "sigmaWeeks": 0.62,
+      "preEnd": "2027-02-03",
+      "postStart": "2027-02-19",
+      "postEnd": "2027-03-05",
+      "cnyDate": "2027-02-06",
+      "note": "春节把交付切成年前/年后两段；年后从复工首个完整周开始"
+    },
+    "explain": [
+      {
+        "label": "官方周期",
+        "value": "11–16 周",
+        "impact": "先验 · 权重 55%",
+        "text": "APP 的窗口最接近小鹏真实排队口径，但通常偏保守，且不区分颜色/配置。"
+      },
+      {
+        "label": "同配置样本",
+        "value": "9.3–13.0 周",
+        "impact": "校准 · 权重 25%",
+        "text": "7 月锁单的增程 Max 多在 9–13 周交付；样本少，不能单独外推。"
+      },
+      {
+        "label": "产能/供需",
+        "value": "2 万+ / 月",
+        "impact": "结构 · 权重 20%",
+        "text": "L03 10 月交付破 2 万，11 月起官方预计稳定 2 万+，是当前最强的“提速”证据。"
+      },
+      {
+        "label": "春节分叉",
+        "value": "2 月 6 日",
+        "impact": "±4–5 周",
+        "text": "2 月初到 2 月中旬的排产/物流会冻结，窗口跨春节时，交付会明显分成年前、年后两簇。"
+      }
+    ],
+    "calibration": {
+      "weeks": 0.11,
+      "capacityWeeks": 0.08,
+      "windowWeeks": 0.0,
+      "cohortWeeks": 0.03,
+      "riskWeeks": 0.0,
+      "updatedAt": "2026-11-04T16:29:55+08:00",
+      "note": "L03 最新月交付 20,000 台；增程周期 未抓到；自动样本 1 条"
+    }
+  },
+  "predictionHistory": [
+    {
+      "date": "2026-11-04",
+      "p50": "2027-02-01",
+      "p10": "2027-01-22",
+      "p90": "2027-02-25",
+      "confidence": 0.64,
+      "note": "自动更新：自动抓取新增 2 条信源"
+    }
+  ],
+  "capacity": {
+    "headline": "产能不是“有没有”，而是“分给谁”",
+    "l03Monthly": [
+      {
+        "month": "2026-07",
+        "label": "7月",
+        "value": 2870,
+        "kind": "actual",
+        "note": "上市首月，产能爬坡"
+      },
+      {
+        "month": "2026-08",
+        "label": "8月",
+        "value": 8424,
+        "kind": "actual",
+        "note": "双班生产，产能效率几乎翻倍"
+      },
+      {
+        "month": "2026-09",
+        "label": "9月",
+        "value": 14000,
+        "kind": "actual",
+        "note": "官方口径：超过 1.4 万台"
+      },
+      {
+        "month": "2026-10",
+        "label": "10月",
+        "value": 20000,
+        "kind": "actual",
+        "note": "官方口径：超过 2 万台"
+      },
+      {
+        "month": "2026-11",
+        "label": "11月",
+        "value": 21500,
+        "kind": "forecast",
+        "note": "基准假设：2.15 万台"
+      },
+      {
+        "month": "2026-12",
+        "label": "12月",
+        "value": 22000,
+        "kind": "forecast",
+        "note": "基准假设：2.2 万台"
+      },
+      {
+        "month": "2027-01",
+        "label": "1月",
+        "value": 22000,
+        "kind": "forecast",
+        "note": "春节前冲量"
+      },
+      {
+        "month": "2027-02",
+        "label": "2月",
+        "value": 17000,
+        "kind": "forecast",
+        "note": "春节减产假设"
+      }
+    ],
+    "groupMonthly": [
+      {
+        "month": "2026-07",
+        "label": "7月",
+        "value": 38027,
+        "kind": "actual"
+      },
+      {
+        "month": "2026-08",
+        "label": "8月",
+        "value": 39107,
+        "kind": "actual"
+      },
+      {
+        "month": "2026-09",
+        "label": "9月",
+        "value": 41256,
+        "kind": "actual"
+      },
+      {
+        "month": "2026-10",
+        "label": "10月",
+        "value": 50237,
+        "kind": "actual"
+      },
+      {
+        "month": "2026-11",
+        "label": "11月",
+        "value": 52000,
+        "kind": "forecast"
+      },
+      {
+        "month": "2026-12",
+        "label": "12月",
+        "value": 55000,
+        "kind": "forecast"
+      }
+    ],
+    "facts": [
+      {
+        "label": "设计产能",
+        "value": "42 万",
+        "unit": "辆/年",
+        "note": "肇庆 20 + 广州 12 + 武汉 10；2025 年交付 42.9 万，利用率 102.2%",
+        "tier": "第三方汇总"
+      },
+      {
+        "label": "10 月集团交付",
+        "value": "50,237",
+        "unit": "辆",
+        "note": "单月历史新高；年化约 60 万辆，已明显高于设计产能",
+        "tier": "官方"
+      },
+      {
+        "label": "L03 10 月交付",
+        "value": "20,000+",
+        "unit": "辆",
+        "note": "官方预计 11 月起稳定在 2 万台以上",
+        "tier": "官方"
+      },
+      {
+        "label": "双班+技改上限",
+        "value": "55–59 万",
+        "unit": "辆/年",
+        "note": "第三方测算，非公司口径；10 月实际 5.02 万台已超过该上限，作为保守参照",
+        "tier": "第三方测算"
+      },
+      {
+        "label": "2027 产能上限",
+        "value": "60–72 万",
+        "unit": "辆/年",
+        "note": "广州二期 + 武汉二期；72 万为常见口径，按整车折算约 60–65 万（第三方）",
+        "tier": "第三方测算"
+      },
+      {
+        "label": "L05 产线",
+        "value": "独立",
+        "unit": "工厂/产线",
+        "note": "与 L03 不同工厂、独立产线，官方明确不挤占 L03 产能",
+        "tier": "官方"
+      }
+    ],
+    "plans": [
+      {
+        "date": "2026-10",
+        "title": "双班 + 技改，实际产量超过设计产能",
+        "detail": "集团 10 月交付 50,237 台；L03 首次跨过 2 万台。设计产能 42 万/年，靠双班、加班、技改超产。",
+        "tier": "A/B"
+      },
+      {
+        "date": "2026-11",
+        "title": "L03 月交付稳定 2 万+",
+        "detail": "官方口径：10 月起 L03 月交付稳定在 2 万台以上；增程版周期已缩短至 10–15 周，纯电仍要 16–21 周。",
+        "tier": "A"
+      },
+      {
+        "date": "2027-08",
+        "title": "广州二期续建投产",
+        "detail": "总投资约 13 亿元，年产车身车架/底盘等 30 万套，不涉及电池；官方明确这是“车身零部件”，不等于新增 30 万辆整车。",
+        "tier": "A"
+      },
+      {
+        "date": "2027-Q4",
+        "title": "武汉二期逐步收尾",
+        "detail": "冲压、压铸、电池车间扩建；媒体口径项目 2026 Q4–2027 Q4 完工。规划许可不等于立即形成整车产能。",
+        "tier": "C"
+      }
+    ],
+    "constraints": [
+      "L03 与 M03 在肇庆混线生产，按周分配版本配额；增程 Max 是走量配置，订单池厚。",
+      "L05 与 L03 在不同工厂、独立产线，官方明确不互相挤占产能；但 L05 可能分流部分新增订单。",
+      "L03 是 MONA 首款全球车型，需同时供应国内与海外；海外占比目标 30–40%，会占用一部分产量。",
+      "高端制程芯片在 2026 年 8 月出现波动，已逐步克服；供应链仍是尾部风险。"
+    ]
+  },
+  "community": [
+    {
+      "id": "c01",
+      "lockDate": "2026-07-16",
+      "deliveryDate": "2026-09-01",
+      "observedAt": "2026-09-01",
+      "status": "delivered",
+      "trim": "1330 增程",
+      "color": "未披露",
+      "city": "温州",
+      "waitWeeks": 6.7,
+      "source": "小鹏社区",
+      "url": "https://bbs.xiaopeng.com/thread/3889076?tidType=1",
+      "confidence": "medium",
+      "note": "上市夜锁单，温州首提；属于首批交付，不代表当前队列"
+    },
+    {
+      "id": "c02",
+      "lockDate": "2026-07-19",
+      "deliveryDate": "2026-09-22",
+      "observedAt": "2026-09-22",
+      "status": "delivered",
+      "trim": "1330 Max",
+      "color": "暮光紫",
+      "city": "未披露",
+      "waitWeeks": 9.3,
+      "source": "小鹏社区",
+      "url": "https://bbs.xiaopeng.com/article/3905622?tidType=1",
+      "confidence": "high",
+      "note": "官方当时 7–11 周；实际 9.3 周，落在窗口中段"
+    },
+    {
+      "id": "c03",
+      "lockDate": "2026-07-29",
+      "deliveryDate": "2026-10-28",
+      "observedAt": "2026-10-28",
+      "status": "delivered",
+      "trim": "L03（动力未披露）",
+      "color": "乌梅子酱",
+      "city": "未披露",
+      "waitWeeks": 13.0,
+      "source": "小鹏社区",
+      "url": "https://bbs.xiaopeng.com/thread/3957363?tidType=1",
+      "confidence": "medium",
+      "note": "带 Roma 套件；未明确纯电/增程，可能是纯电，仅作上限参考"
+    },
+    {
+      "id": "c04",
+      "lockDate": "2026-07-21",
+      "deliveryDate": null,
+      "observedAt": "2026-10-10",
+      "status": "allocation",
+      "trim": "525 Max（纯电）",
+      "color": "未披露",
+      "city": "未披露",
+      "waitWeeks": 11.6,
+      "source": "徐同学助手",
+      "url": "https://www.sina.cn/news/detail/5352554393503471.html",
+      "confidence": "low",
+      "note": "10 月 10 日刚开始少量配车；纯电队列，不能直接套用到增程"
+    },
+    {
+      "id": "c05",
+      "lockDate": "2026-07-22",
+      "deliveryDate": null,
+      "observedAt": "2026-10-10",
+      "status": "allocation",
+      "trim": "625 Max（纯电）",
+      "color": "未披露",
+      "city": "未披露",
+      "waitWeeks": 11.4,
+      "source": "徐同学助手",
+      "url": "https://www.sina.cn/news/detail/5352554393503471.html",
+      "confidence": "low",
+      "note": "同上；纯电 Max 大部队仍在 7.21–22"
+    },
+    {
+      "id": "c06",
+      "lockDate": "2026-08-25",
+      "deliveryDate": null,
+      "observedAt": "2026-11-04",
+      "status": "waiting",
+      "trim": "1330 Max",
+      "color": "未披露",
+      "city": "未披露",
+      "waitWeeks": 10.1,
+      "source": "小鹏社区",
+      "url": "https://bbs.xiaopeng.com/article/3884006?tidType=1",
+      "confidence": "low",
+      "note": "锁单时官方 10–15 周；作者按社区数据预测 11 月中下旬，尚未看到提车更新"
+    },
+    {
+      "id": "c07",
+      "lockDate": "2026-09-20",
+      "deliveryDate": null,
+      "observedAt": "2026-11-04",
+      "status": "waiting",
+      "trim": "1330 Max",
+      "color": "未披露",
+      "city": "未披露",
+      "waitWeeks": 6.4,
+      "source": "社区样本",
+      "url": "",
+      "confidence": "low",
+      "note": "9 月锁单增程 Max，仍在等车；用来观察 9 月队列是否开始配车"
+    },
+    {
+      "id": "auto-2026-07-31-2026-10-30",
+      "lockDate": "2026-07-31",
+      "deliveryDate": "2026-10-30",
+      "observedAt": "2026-10-30",
+      "status": "delivered",
+      "trim": "L03（未披露）",
+      "color": "未披露",
+      "city": "未披露",
+      "waitWeeks": 13.0,
+      "source": "小鹏社区（自动）",
+      "url": "https://bbs.xiaopeng.com/article/3953499?tidType=1",
+      "confidence": "auto",
+      "note": "自动抓取，需人工复核",
+      "auto": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "s01",
+      "date": "2026-11-02",
+      "tier": "A",
+      "publisher": "小鹏汽车官方",
+      "title": "MONA L03 10 月交付超 20,000 台",
+      "url": "https://www.sina.cn/news/detail/5360730669842815.html",
+      "claim": "L03 10 月交付突破 2 万台；官方预计从 10 月起月交付稳定在 2 万台以上。",
+      "confidence": 0.98,
+      "usedFor": "delivery",
+      "status": "active"
+    },
+    {
+      "id": "s02",
+      "date": "2026-11-02",
+      "tier": "A",
+      "publisher": "XP-姜文 / 小鹏 MONA",
+      "title": "就 L03 交付进度致歉：最新周期已缩短",
+      "url": "https://www.sohu.com/a/1096263416_121723580",
+      "claim": "增程版锁单后约 10–15 周，纯电版 16–21 周；L05 与 L03 不同工厂、独立产线，不挤占产能。",
+      "confidence": 0.95,
+      "usedFor": "official-window",
+      "status": "active"
+    },
+    {
+      "id": "s03",
+      "date": "2026-11-03",
+      "tier": "B",
+      "publisher": "ZAKER 汽车 / 搜狐",
+      "title": "小鹏为 L03 交付致歉，准车主：我们要的是排产时间表",
+      "url": "https://www.sohu.com/a/1096741063_120440806",
+      "claim": "小鹏集团 10 月交付 50,237 台；L03 8 月 8,424、9 月超 1.4 万、10 月超 2 万；欧洲盲订约 1.2 万台。",
+      "confidence": 0.82,
+      "usedFor": "capacity",
+      "status": "active"
+    },
+    {
+      "id": "s04",
+      "date": "2026-10-08",
+      "tier": "A",
+      "publisher": "广东省能源局",
+      "title": "小鹏广州智造基地二期续建项目节能报告审查意见",
+      "url": "https://drc.gd.gov.cn/xmgg/content/post_4963258.html",
+      "claim": "项目总投资约 13 亿元，预计 2027 年 8 月投产；年产车身车架、底盘等 30 万套，不涉及电池。",
+      "confidence": 0.98,
+      "usedFor": "capacity-plan",
+      "status": "active"
+    },
+    {
+      "id": "s05",
+      "date": "2026-10-10",
+      "tier": "C",
+      "publisher": "徐同学助手",
+      "title": "小鹏汽车 10 月 10 日交付进度",
+      "url": "https://www.sina.cn/news/detail/5352554393503471.html",
+      "claim": "L03 累计交付 25,294+；纯电 Max 7 月 21–22 日订单开始少量配车；增程有望次日开始配车。",
+      "confidence": 0.62,
+      "usedFor": "community",
+      "status": "active"
+    },
+    {
+      "id": "s06",
+      "date": "2026-10-02",
+      "tier": "B",
+      "publisher": "IT之家",
+      "title": "小鹏 MONA L03 车型 9 月交付超 14,000 台",
+      "url": "https://auto.ithome.com/archiver/1/009/317.htm",
+      "claim": "L03 9 月交付超 1.4 万台；超九成订单选择 Max/Ultra SE；集团 9 月交付 41,256 台。",
+      "confidence": 0.9,
+      "usedFor": "delivery",
+      "status": "active"
+    },
+    {
+      "id": "s07",
+      "date": "2026-08-07",
+      "tier": "A",
+      "publisher": "XP-姜文 / 小鹏 MONA",
+      "title": "L03 本月产能效率几乎翻倍",
+      "url": "https://www.sina.cn/news/detail/5329249004945625.html",
+      "claim": "7 月小范围爬坡；芯片供应波动已逐步克服；已切换双班，8 月产能效率几乎翻倍；9、10 月拉到最大产能。",
+      "confidence": 0.95,
+      "usedFor": "capacity",
+      "status": "active"
+    },
+    {
+      "id": "s08",
+      "date": "2026-07-21",
+      "tier": "B",
+      "publisher": "CNMO",
+      "title": "小鹏副总裁回应 L03 交付周期：产能将迎几何级提升",
+      "url": "https://smartcar.cnmo.com/news/813749.html",
+      "claim": "L03 纯电一度 12–16 周、增程 7–11 周；交付周期在达到十几周后没有继续明显增长，产能爬坡后将大幅提升。",
+      "confidence": 0.8,
+      "usedFor": "official-window-history",
+      "status": "superseded"
+    },
+    {
+      "id": "s09",
+      "date": "2026-09-22",
+      "tier": "C",
+      "publisher": "什么值得买（社区汇编）",
+      "title": "L03 订单墙两个月后终于动了：纯电悬、增程稳",
+      "url": "https://post.smzdm.com/p/ae6v3v33/",
+      "claim": "7 月 17 日纯电订单开始下线；纯电样本 10–14 周、增程 7–11 周；7 月 16 日上市夜 1 小时大定 46,859 台。",
+      "confidence": 0.58,
+      "usedFor": "community",
+      "status": "active"
+    },
+    {
+      "id": "s10",
+      "date": "2026-01-14",
+      "tier": "B",
+      "publisher": "36 氪",
+      "title": "为实现 55–60 万销量目标，小鹏准备了三手牌",
+      "url": "https://eu.36kr.com/zh/p/3636215229170951",
+      "claim": "小鹏 2026 年内部销量目标 55–60 万辆；锁定超百万颗自研芯片产能；MONA 两款 SUV 是走量重点。",
+      "confidence": 0.75,
+      "usedFor": "macro",
+      "status": "active"
+    },
+    {
+      "id": "s11",
+      "date": "2026-10-23",
+      "tier": "C",
+      "publisher": "Reportify / 数说新能源",
+      "title": "小鹏汽车：产能跟不上订单、幸福的烦恼？",
+      "url": "https://reportify.cn/social-media/862530023592185",
+      "claim": "设计产能 42 万/年；2025 年利用率 102.2%；双班+技改上限 55–59 万/年；2027 年常见口径 72 万，整车折算 60–65 万。",
+      "confidence": 0.55,
+      "usedFor": "capacity-analysis",
+      "status": "active"
+    },
+    {
+      "id": "s12",
+      "date": "2026-01-01",
+      "tier": "B",
+      "publisher": "时间与日期",
+      "title": "2027 年中国春节：2 月 6 日",
+      "url": "https://www.timeanddate.com/holidays/china/chinese-new-year",
+      "claim": "2027 年农历正月初一为 2 月 6 日（周六）；工厂与物流通常在前后 1–2 周降速。",
+      "confidence": 0.98,
+      "usedFor": "seasonality",
+      "status": "active"
+    },
+    {
+      "id": "s13",
+      "date": "2026-09-20",
+      "tier": "C",
+      "publisher": "汽车广角 / 新浪",
+      "title": "L03 交付周期实测数据与避坑指南",
+      "url": "https://www.sina.cn/news/article/comos_nismzve6780862.html",
+      "claim": "8 月 1 日锁单增程高配显示 8–13 周；8 月 15 日锁单显示 14–19 周；紫色/银色排产优先级更高。",
+      "confidence": 0.5,
+      "usedFor": "community",
+      "status": "active"
+    },
+    {
+      "id": "s14",
+      "date": "2026-07-16",
+      "tier": "B",
+      "publisher": "IT之家 / 搜狐",
+      "title": "L03 上市 7 分钟大定破 2 万，1 小时 46,859 台",
+      "url": "https://www.sohu.com/a/1059914701_114760",
+      "claim": "L03 于 7 月 16 日上市；7 分钟大定 2 万，1 小时 46,859 台；增程与纯电同价起步，12.38 万元起。",
+      "confidence": 0.88,
+      "usedFor": "demand",
+      "status": "active"
+    },
+    {
+      "date": "2026-11-04",
+      "tier": "B",
+      "publisher": "汽车之家",
+      "title": "小鹏进入新周期！月销5万后，何小鹏再下军令状：11月再上新台阶",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1VaERRZ3FxVXFGYzdOeDlPVzJTNFhjTmhSSGVCT2dlaUQ3X1RDT21mcDBJNEtySDJ5bUtiRUUwQ0ZaVDRJRzFNcS1JOVRlOG9BRF8wS1p4NmJsRE0?oc=5",
+      "claim": "小鹏进入新周期！月销5万后，何小鹏再下军令状：11月再上新台阶",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162843-2"
+    },
+    {
+      "date": "2026-11-03",
+      "tier": "B",
+      "publisher": "汽车之家",
+      "title": "月销14000辆，小鹏MONA L03正在抓住被遗忘的BBA年轻用户",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1XWjhvQmZzVE84LTI4WDR2R2dlUnV1bUFrcHpobHNqUy1yUVBWaGVBT1hJcG50U0s5NHdsRnZPa2hNa1EtTVVtOGZCMFhjZjNZWDJXN0hCaTV5bk0?oc=5",
+      "claim": "月销14000辆，小鹏MONA L03正在抓住被遗忘的BBA年轻用户",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-4"
+    },
+    {
+      "date": "2026-11-02",
+      "tier": "B",
+      "publisher": "手机新浪网",
+      "title": "小鹏MONA L03 10月交付超20000台 售价12.38-15.68万元",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNSW1ZaWYwNGFvVDAxWl9xTlBmejRDcHNoZkNCT2s1ZkF6LW96NTk4ZWREVGdNUHR5V3NLSWUybDZTbTY5ZEJETnZXeVVhV0VpWGdJTmVMbnBreHA0dTN3am9KbEwtZ0pWMUFPVnc3Q1dxZC11ZGRYNWtHRFF1dE5QczZPV2p6dGFsTDdpQ1RR?oc=5",
+      "claim": "小鹏MONA L03 10月交付超20000台 售价12.38-15.68万元",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-1"
+    },
+    {
+      "date": "2026-11-02",
+      "tier": "B",
+      "publisher": "手机新浪网",
+      "title": "交付破5 万，厂区里这口爆米花比数据更让人踏实|小鹏|MONA L03_新浪新闻",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5ic2g4MjVnbVF3dEVLQTlBMWF1S0xfR2Y0VTFWaDhBUmFfWjNpTDJ0ZnhXQzRwLXVCR1BWTE4xZGFnTHNScHJaczM0dm5iNFpabF95Uks1QWF0OXdyVlZ2UTEwdw?oc=5",
+      "claim": "交付破5 万，厂区里这口爆米花比数据更让人踏实|小鹏|MONA L03_新浪新闻",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-3"
+    },
+    {
+      "date": "2026-11-02",
+      "tier": "B",
+      "publisher": "搜狐网",
+      "title": "小鹏高管 L03 交付致歉：会全力保障按时交付",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQczBxY3M0cU15Yl9XekM0QkxXSVMwQ01iX0NqNkhJMVJ1ZWdPdGFOMEdYYno5Zmc3bmtsRy1lT0VIU1ludVctQUtEdkZBU3dWX3lkYVE0QkRsSWQyVEttNTY2V3VJMlhDNllyNzZfLTBYSDZFSUxjeTFzaFVKTTdmeHhhZ1YzQTJoUktkbg?oc=5",
+      "claim": "小鹏高管 L03 交付致歉：会全力保障按时交付",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-5"
+    },
+    {
+      "date": "2026-11-02",
+      "tier": "A",
+      "publisher": "小鹏汽车官网",
+      "title": "小鹏集团10月共交付新车50,237台，单月交付量创历史新高",
+      "url": "https://www.xiaopeng.com/news/company_news/5611.html",
+      "claim": "小鹏集团10月共交付新车50,237台，单月交付量创历史新高 来自 小鹏汽车 2026/11/02 【 2026年11月1日】 今日，小鹏集团公布最新交付成绩： 2026年10月，小鹏集团共交付新车50,237台，环比增长2 2 %，同比增长 20 %，创单月交付量历史新高。其中，海外市场交付13,326台，同比增长166%，创海外市场单月交付量历史新高。 MONA L05 已正式上市，限时权益价 13.98 万元起，5000台准现车于",
+      "confidence": 0.96,
+      "usedFor": "official",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-8"
+    },
+    {
+      "date": "2026-11-01",
+      "tier": "B",
+      "publisher": "汽车之家",
+      "title": "小鹏月销首破5万，11月的台阶有多高",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1OZ19UaHJWQ01pVDJwZGRCS29fTkdBZk5NVTlaY1RRRUZFT1M4WXdSb0t3dDZVd3JmUWhvNkNRMjJGcUFodzZMV0Z1VXpuUVplQkttQkl2dVVmRVU?oc=5",
+      "claim": "小鹏月销首破5万，11月的台阶有多高",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-9"
+    },
+    {
+      "date": "2026-10-30",
+      "tier": "B",
+      "publisher": "手机新浪网",
+      "title": "何小鹏：没想到L03产能的配置规划跟实际差异很大，接受批评",
+      "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNT2txbF96WW5qTTN3MU9oUU5jNHZSQkY5WkJ4QmxSZWQwWTJ1TWNGNWNmVW9uVGVQS0NYbi1CMjBfbDJzM256eWRfTWxmYk4wNkR4aTNnX3paak9lX3dXZHZJWUdfME13aWRMSml1V1FGYWpld0YweTMwaEI4d3pyLXVCVmVyTDVuNXlGei1abkZESHFzczc1bThlN0MzZW55QzA4dHdJUXh2dGdOenF0VDAtQTBINVlHRDVTRXJSTVlielNHSzRIUUdsWFdvNlRvanFzV2JUYm5uYkUzMm51aTlueEhKN2s?oc=5",
+      "claim": "何小鹏：没想到L03产能的配置规划跟实际差异很大，接受批评",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-2"
+    },
+    {
+      "date": "2026-10-30",
+      "tier": "C",
+      "publisher": "小鹏社区",
+      "title": "7.31订车｜终提小鹏MONA L03，热爱终不负期待",
+      "url": "https://bbs.xiaopeng.com/article/3953499?tidType=1",
+      "claim": "#我的提车作业# 终于等到我的小鹏MONA L03啦！回想起来，我是7月31日下定的车，经历了漫长的等车时光。这段时间里我几乎每天都会打开APP刷新进度，虽然等待的日子有点久，但丝毫没有减少我对它的期待。今天真正把爱车开回家的那一刻，所有等待都变得特别值得。其实我关注小鹏已经很久了，早在2022年就",
+      "confidence": 0.58,
+      "usedFor": "community",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-6"
+    },
+    {
+      "date": "2026-10-30",
+      "tier": "B",
+      "publisher": "手机新浪网",
+      "title": "小鹏广州工厂102秒下线一台车，武汉工厂节拍更快",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQemFUb1RrUXBMYkw2UUJWRFBaTmVrN24tcTFjdmt3ODNiYTRURHFxSzVPMDJMbmM0X28wU1F3QjlrczZ3UG9HUFU5U241QW5pTHV6ZzQ2M1NUbXJyRmpiRUxITG1FUUhQR2lGRmc4ckZFbGdYUTUyb3ZoQ2VDTWlfaA?oc=5",
+      "claim": "小鹏广州工厂102秒下线一台车，武汉工厂节拍更快",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261104162328-7"
+    }
+  ],
+  "watchlist": [
+    {
+      "label": "小鹏汽车官方微博",
+      "url": "https://weibo.com/xiaopeng",
+      "type": "official",
+      "why": "交付战报、产能/周期口径的第一落点"
+    },
+    {
+      "label": "小鹏汽车社区 L03",
+      "url": "https://bbs.xiaopeng.com",
+      "type": "community",
+      "why": "车友锁单/配车/提车时间线"
+    },
+    {
+      "label": "徐同学助手",
+      "url": "https://www.sina.cn/media/3780639781",
+      "type": "community",
+      "why": "按锁单日期追踪配车/下线进度"
+    },
+    {
+      "label": "IT之家 汽车",
+      "url": "https://auto.ithome.com",
+      "type": "media",
+      "why": "月交付、工厂、供应链的快讯"
+    },
+    {
+      "label": "广东省发改委项目公告",
+      "url": "https://drc.gd.gov.cn/xmgg/",
+      "type": "official",
+      "why": "广州/肇庆工厂扩产的硬信源"
+    }
+  ],
+  "dailyChecklist": [
+    "官方：小鹏汽车/XPeng 微博、APP 是否更新 L03 周期或交付战报",
+    "产能：L03 周交付/月交付、集团月交付、工厂改造/投产节点",
+    "车友：同配置 1330 Max 是否出现新的配车/提车样本（至少 1 条）",
+    "风险：春节排产、出口分流、芯片/供应链、L05 是否影响 L03",
+    "更新：把新样本/信源写入 data.json，运行 python update.py 重建"
+  ],
+  "methodology": {
+    "summary": "把官方周期、同配置车友样本、产能/供需三类证据加权，再用春节把分布切成“年前/年后”两段。输出的是概率区间，不是单点承诺。",
+    "formula": "先验 = 官方 11–16 周（55%）+ 同配置样本 12.6 周（25%）+ 产能/供需 13.1 周（20%）+ 颜色/城市/出口/L05 修正；春节前后分别建模。",
+    "rules": [
+      "官方窗口权重最高，因为它是小鹏真实排产口径；但不把 APP 上限当作保证。",
+      "车友样本只在“同动力 + 同配置 + 已完成”时计入，且权重压低，避免小样本过拟合。",
+      "产能看 L03 自身月交付，而不是集团总交付；集团总交付会被 GX/G9L/L05 等车型稀释。",
+      "春节是硬约束：窗口跨春节时，年前/年后会出现明显断档，不能简单取中点。",
+      "所有第三方产能测算都标注“非官方”，不与官方口径混用。"
+    ],
+    "caveats": [
+      "车友样本来自公开社区，存在幸存者偏差：提前提车的人更愿意发帖。",
+      "颜色/配置会影响批次；新月银、18 英寸的样本不足，修正幅度刻意保守。",
+      "出口占比、芯片供应、L05 订单分流都可能让实际日期偏离 1–2 周。",
+      "交付中心所在城市、尾款/保险/上牌准备也会影响“下线→提车”的 3–7 天。"
+    ]
+  },
+  "changelog": [
+    {
+      "date": "2026-11-04",
+      "version": "1.0.0",
+      "changes": [
+        "建立首版预测：官方 11–16 周 + 3 条已完成同配置样本 + L03 月交付 2 万+",
+        "加入春节双峰模型：年前 58% / 年后 42%",
+        "接入产能规划：广州二期 2027-08、武汉二期 2027-Q4、L05 独立产线",
+        "上线每日更新表单与更新包导出"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "version": "1.0.0",
+      "changes": [
+        "自动抓取新增 9 条信源",
+        "自动抓取新增 1 条车友样本",
+        "自动校准 +0.11 周"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "version": "1.0.0",
+      "changes": [
+        "自动抓取新增 2 条信源"
+      ]
+    }
+  ],
+  "auto": {
+    "enabled": true,
+    "lastRun": "2026-11-04T16:29:55+08:00",
+    "lastSuccess": "2026-11-04T16:29:55+08:00",
+    "lastStatus": "ok",
+    "newSources": 0,
+    "newReports": 0,
+    "calibrationWeeks": 0.11,
+    "errors": [],
+    "signals": {
+      "groupMonthly": {
+        "2026-10": 50237
+      },
+      "lastFactDate": "2026-11-04",
+      "l03Monthly": {
+        "2026-10": 20000
+      }
+    },
+    "adapterStats": {
+      "ithome": {
+        "ithome_matches": 0
+      },
+      "official": {
+        "official_cards": 8
+      },
+      "bbs": {
+        "bbs_candidates": 2
+      },
+      "google": {
+        "google_matches": 27
+      }
+    },
+    "headlines": []
+  }
+}

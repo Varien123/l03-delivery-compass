@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.log
+backups/
+auto_log.json
+.DS_Store
+Thumbs.db
