@@ -21,8 +21,10 @@ from __future__ import annotations
 import argparse
 import html as html_lib
 import json
+import os
 import re
 import shutil
+import subprocess
 import sys
 import time
 import urllib.error
@@ -797,7 +799,68 @@ def backup_data() -> Path | None:
     return path
 
 
-def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool) -> int:
+def find_git() -> str | None:
+    found = shutil.which("git")
+    if found:
+        return found
+    for candidate in (
+        r"C:\Program Files\Git\cmd\git.exe",
+        r"C:\Program Files\Git\bin\git.exe",
+        r"C:\Program Files (x86)\Git\cmd\git.exe",
+    ):
+        if Path(candidate).exists():
+            return candidate
+    return None
+
+
+def git_sync() -> dict[str, Any]:
+    """把本次自动更新的数据/网页提交并推到 GitHub。
+
+    失败不会影响本地结果；只把错误写进 auto_log。
+    """
+    if not (ROOT / ".git").exists():
+        return {"status": "skipped", "detail": "not a git repository"}
+    git = find_git()
+    if not git:
+        return {"status": "error", "detail": "git executable not found"}
+
+    env = os.environ.copy()
+    env["GIT_TERMINAL_PROMPT"] = "0"
+
+    def run(args: list[str], timeout: int = 90) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            [git, *args],
+            cwd=str(ROOT),
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="ignore",
+            timeout=timeout,
+            env=env,
+        )
+
+    try:
+        add = run(["add", "-A"])
+        if add.returncode != 0:
+            return {"status": "error", "detail": f"git add: {add.stderr.strip()[:300]}"}
+        status = run(["status", "--porcelain"])
+        if not status.stdout.strip():
+            return {"status": "skipped", "detail": "no changes"}
+        commit = run(["commit", "-m", f"auto: daily forecast update {today().isoformat()}"])
+        if commit.returncode != 0:
+            return {"status": "error", "detail": f"git commit: {commit.stderr.strip()[:300]}"}
+        push = run(["push", "origin", "HEAD:main"], timeout=120)
+        if push.returncode != 0:
+            return {"status": "error", "detail": f"git push: {push.stderr.strip()[:300]}"}
+        head = run(["rev-parse", "--short", "HEAD"])
+        return {"status": "pushed", "commit": head.stdout.strip(), "detail": "origin/main"}
+    except subprocess.TimeoutExpired:
+        return {"status": "error", "detail": "git command timed out"}
+    except Exception as exc:  # noqa: BLE001
+        return {"status": "error", "detail": str(exc)[:300]}
+
+
+def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool, push: bool = True) -> int:
     started = time.time()
     data = update.read_json(DATA_PATH)
     before_p50 = model.compute_prediction(data)["p50"]["date"]
@@ -910,6 +973,15 @@ def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool) -> int:
     update.write_json(DATA_PATH, data)
 
     after_p50 = model.compute_prediction(data)["p50"]["date"]
+
+    if not no_build:
+        update.build(data)
+        update.snapshot(data)
+
+    git_result = {"status": "skipped", "detail": "push disabled or no build"}
+    if push and not no_build:
+        git_result = git_sync()
+
     log = {
         "runAt": auto["lastRun"],
         "durationSeconds": round(time.time() - started, 1),
@@ -922,14 +994,11 @@ def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool) -> int:
         "calibration": calibration,
         "p50Before": before_p50,
         "p50After": after_p50,
+        "gitSync": git_result,
         "errors": errors,
         "stats": stats,
     }
     AUTO_LOG_PATH.write_text(json.dumps(log, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
-    if not no_build:
-        update.build(data)
-        update.snapshot(data)
 
     print("\nL03 自动更新")
     print("-" * 46)
@@ -944,6 +1013,12 @@ def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool) -> int:
         print(f"备份       {backup.name}")
     if not no_build:
         print("已生成 index.html 和当日快照")
+    if git_result["status"] == "pushed":
+        print(f"GitHub     已推送 {git_result.get('commit', '')}")
+    elif git_result["status"] == "error":
+        print(f"GitHub     同步失败：{git_result.get('detail', '')}")
+    elif push and not no_build:
+        print(f"GitHub     无需推送（{git_result.get('detail', '')}）")
     print("")
 
     if verbose:
@@ -959,10 +1034,11 @@ def main() -> None:
     parser.add_argument("--max-age-days", type=int, default=7, help="只收录最近 N 天的信源")
     parser.add_argument("--dry-run", action="store_true", help="只抓取和打印，不写数据")
     parser.add_argument("--no-build", action="store_true", help="只更新 data.json，不生成网页")
+    parser.add_argument("--no-push", action="store_true", help="不提交/推送到 GitHub")
     parser.add_argument("--verbose", action="store_true", help="打印新增明细")
     args = parser.parse_args()
     try:
-        raise SystemExit(run(args.max_age_days, args.dry_run, args.no_build, args.verbose))
+        raise SystemExit(run(args.max_age_days, args.dry_run, args.no_build, args.verbose, push=not args.no_push))
     except KeyboardInterrupt:
         print("\n已取消")
         raise SystemExit(130)
