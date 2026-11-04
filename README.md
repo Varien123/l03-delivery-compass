@@ -1,5 +1,7 @@
 # L03 交付罗盘
 
+在线预览：<https://varien123.github.io/l03-delivery-compass/>
+
 一个针对 **小鹏 MONA L03 超级增程 1330 Max** 的个人提车预测工具。它会**每天自动抓取**公开信源、抽取交付/产能信号、自动校准模型，然后重建网页。你不需要每天手动填样本。
 
 > 订单：2026-11-01 成都锁单 · 新月银 · 18 英寸 · APP 显示 11–16 周  
@@ -74,6 +76,12 @@ python -m http.server 8765
 状态：Ready
 ```
 
+每次更新完成后，`auto_update.py` 会自动：
+
+- 重建 `index.html` 和当日快照；
+- 如果当前目录是 git 仓库且配置了 `origin`，自动 `git add / commit / push` 到 GitHub；
+- GitHub Pages 随之刷新，线上版本与本地同步。
+
 查看/立即运行/删除：
 
 ```powershell
@@ -106,6 +114,12 @@ python auto_update.py --dry-run --verbose
 
 ```powershell
 python auto_update.py --no-build
+```
+
+只更新本地，不提交到 GitHub：
+
+```powershell
+python auto_update.py --no-push
 ```
 
 ### 3.3 抓取源
@@ -240,6 +254,9 @@ A：其他三个源仍工作；抓取错误会写入 `auto_log.json`，已有数
 
 **Q：为什么自动校准只有 ±1.2 周？**  
 A：防止单日噪声把预测大幅拉飞。真正的结构性变化（官方周期改变、产能大幅提升）仍以官方窗口和春节双峰为主。
+
+**Q：GitHub Pages 地址是什么？**  
+A：<https://varien123.github.io/l03-delivery-compass/>。仓库：<https://github.com/Varien123/l03-delivery-compass>。
 
 **Q：网页里手动录入的数据会直接改 `data.json` 吗？**  
 A：不会。网页只存本机浏览器，需要导出更新包，再运行 `python update.py --merge` 合并。
