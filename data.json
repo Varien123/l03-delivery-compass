@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0.0",
-    "generatedAt": "2026-11-04T16:29:55+08:00",
+    "generatedAt": "2026-11-04T17:06:31+08:00",
     "dataThrough": "2026-11-04",
     "nextReview": "2026-11-05T09:00:00+08:00",
     "timezone": "Asia/Shanghai",
@@ -95,7 +95,7 @@
       "windowWeeks": 0.0,
       "cohortWeeks": 0.03,
       "riskWeeks": 0.0,
-      "updatedAt": "2026-11-04T16:29:55+08:00",
+      "updatedAt": "2026-11-04T17:06:31+08:00",
       "note": "L03 最新月交付 20,000 台；增程周期 未抓到；自动样本 1 条"
     }
   },
@@ -793,8 +793,8 @@
   ],
   "auto": {
     "enabled": true,
-    "lastRun": "2026-11-04T16:29:55+08:00",
-    "lastSuccess": "2026-11-04T16:29:55+08:00",
+    "lastRun": "2026-11-04T17:06:31+08:00",
+    "lastSuccess": "2026-11-04T17:06:31+08:00",
     "lastStatus": "ok",
     "newSources": 0,
     "newReports": 0,
@@ -804,7 +804,7 @@
       "groupMonthly": {
         "2026-10": 50237
       },
-      "lastFactDate": "2026-11-04",
+      "lastFactDate": "2026-10-30",
       "l03Monthly": {
         "2026-10": 20000
       }
