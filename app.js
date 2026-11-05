@@ -715,9 +715,15 @@
       </div>`).join('');
 
     const stale = Math.max(0, daysBetween(DATA.meta.dataThrough, todayISO()));
+    const runDate = auto.lastRunDate || String(auto.lastRun || '').slice(0, 10);
+    const ranToday = runDate === todayISO();
     const pill = $('#freshness');
-    pill.classList.toggle('warn', stale > 2);
-    pill.innerHTML = `<i></i>${stale > 2 ? '数据已 ' + stale + ' 天未更新' : '数据截至'} <b>${fmtMD(DATA.meta.dataThrough)}</b>`;
+    pill.classList.toggle('warn', !ranToday && stale > 2);
+    if (ranToday) {
+      pill.innerHTML = `<i></i>今日 <b>${String(auto.lastRun || '').slice(11, 16)}</b> 已更新`;
+    } else {
+      pill.innerHTML = `<i></i>${stale > 2 ? '数据已 ' + stale + ' 天未更新' : '数据截至'} <b>${fmtMD(DATA.meta.dataThrough)}</b>`;
+    }
   }
 
   function renderMethod() {
