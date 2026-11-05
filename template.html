@@ -178,8 +178,24 @@
     .stage-bar{position:relative;height:2px;background:#e0e6da;border-radius:99px;margin:-18px 0 0 4px;width:calc(100% - 12px);z-index:1}
     .stage-bar span{display:block;height:100%;width:8%;border-radius:99px;background:linear-gradient(90deg,var(--teal),var(--lime));transition:width .8s cubic-bezier(.2,.7,.2,1)}
 
-    .insights{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:17px 0}
-    .insight{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.68);border:1px solid var(--line);border-radius:17px;padding:14px 15px;box-shadow:0 4px 16px rgba(21,31,23,.03);min-width:0}
+    .today-strip{display:grid;grid-template-columns:1.15fr .75fr 1fr;gap:18px;align-items:center;margin-top:13px;padding:12px 18px;background:rgba(255,255,255,.82);border:1px solid rgba(14,143,126,.16);border-radius:17px;box-shadow:0 6px 22px rgba(20,30,22,.035)}
+    .today-main{display:flex;align-items:center;gap:11px;min-width:0}
+    .today-pulse{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px rgba(14,143,126,.10);animation:pulse 2.4s infinite;flex:0 0 auto}
+    .today-main > div{display:flex;flex-direction:column;min-width:0}
+    .today-eyebrow{font-family:var(--display);font-size:8px;letter-spacing:.16em;color:var(--teal);line-height:1.2}
+    .today-main b{font-size:13px;line-height:1.35;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .today-time{font-family:var(--display);font-size:9px;color:var(--muted-2);margin-left:auto;white-space:nowrap}
+    .today-mid{display:flex;align-items:baseline;gap:7px;min-width:0;padding-left:16px;border-left:1px solid var(--line)}
+    .today-mid > span{font-size:9px;color:var(--muted);white-space:nowrap}
+    .today-mid b{font-family:var(--display);font-size:20px;line-height:1;font-weight:600;letter-spacing:-.03em;white-space:nowrap}
+    .today-mid em{font-style:normal;font-size:9px;color:var(--teal);background:rgba(14,143,126,.07);border-radius:5px;padding:2px 5px;white-space:nowrap}
+    .today-meta{display:flex;align-items:center;gap:7px;justify-content:flex-end;font-size:9.5px;color:var(--muted);white-space:nowrap;min-width:0}
+    .today-meta b{font-family:var(--display);font-size:11px;color:var(--ink);font-weight:700}
+    .today-meta .sep{width:1px;height:11px;background:var(--line-strong)}
+    .today-strip.stale{border-color:rgba(231,179,74,.3);background:rgba(255,251,242,.9)}
+    .today-strip.stale .today-pulse{background:var(--amber);box-shadow:0 0 0 5px rgba(231,179,74,.14)}
+    .today-strip.stale .today-eyebrow,.today-strip.stale .today-mid em{color:#a77818;background:rgba(231,179,74,.12)}
+    .insights{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:17px 0}    .insight{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.68);border:1px solid var(--line);border-radius:17px;padding:14px 15px;box-shadow:0 4px 16px rgba(21,31,23,.03);min-width:0}
     .insight .num{font-family:var(--display);font-size:10px;color:var(--teal);letter-spacing:.12em;padding-top:2px;flex:0 0 auto}
     .insight div{min-width:0}
     .insight span{display:block;font-size:10px;color:var(--muted);letter-spacing:.04em}
@@ -424,6 +440,9 @@
       .metric strong{font-size:40px}
       .hero-car{width:100%;right:-22%;bottom:-6%;opacity:.32}
       .window-card{border-radius:24px;padding:20px}
+      .today-strip{grid-template-columns:minmax(0,1fr);gap:8px;padding:12px 14px}
+      .today-mid{border-left:0;padding-left:0;gap:7px}
+      .today-meta{justify-content:flex-start;flex-wrap:wrap;white-space:normal}
       .insights{grid-template-columns:repeat(2,minmax(0,1fr))}
       .insight b{font-size:19px}
       .panel{padding:19px 17px;border-radius:20px}
@@ -601,6 +620,24 @@
         </div>
         <div class="stage-bar"><span id="stageFill"></span></div>
       </aside>
+    </section>
+
+    <section class="today-strip reveal" id="todayStrip" aria-label="今日预测状态">
+      <div class="today-main">
+        <span class="today-pulse" aria-hidden="true"></span>
+        <div><span class="today-eyebrow">TODAY'S FORECAST</span><b id="todayTitle">今日预测已更新</b></div>
+        <span class="today-time" id="todayRun">—</span>
+      </div>
+      <div class="today-mid">
+        <span>中心估计</span>
+        <b id="todayP50">—</b>
+        <em id="todayDelta">今日已重算</em>
+      </div>
+      <div class="today-meta">
+        <span>数据截至 <b id="todayData">—</b></span>
+        <span class="sep" aria-hidden="true"></span>
+        <span>本轮新增 <b id="todayNew">0</b> 条信源</span>
+      </div>
     </section>
 
     <section class="insights reveal" aria-label="关键判断">

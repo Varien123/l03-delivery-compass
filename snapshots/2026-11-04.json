@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0.0",
-    "generatedAt": "2026-11-05T09:00:18+08:00",
+    "generatedAt": "2026-11-05T10:01:59+08:00",
     "dataThrough": "2026-11-04",
     "nextReview": "2026-11-05T09:00:00+08:00",
     "timezone": "Asia/Shanghai",
@@ -95,7 +95,7 @@
       "windowWeeks": 0.0,
       "cohortWeeks": 0.03,
       "riskWeeks": 0.0,
-      "updatedAt": "2026-11-05T09:00:18+08:00",
+      "updatedAt": "2026-11-05T10:01:59+08:00",
       "note": "L03 最新月交付 20,000 台；增程周期 未抓到；自动样本 1 条"
     }
   },
@@ -826,10 +826,10 @@
   ],
   "auto": {
     "enabled": true,
-    "lastRun": "2026-11-05T09:00:18+08:00",
-    "lastSuccess": "2026-11-05T09:00:18+08:00",
+    "lastRun": "2026-11-05T10:01:59+08:00",
+    "lastSuccess": "2026-11-05T10:01:59+08:00",
     "lastStatus": "ok",
-    "newSources": 2,
+    "newSources": 0,
     "newReports": 0,
     "calibrationWeeks": 0.11,
     "errors": [],
@@ -856,10 +856,10 @@
         "google_matches": 27
       }
     },
-    "headlines": [
-      "「L05提车首天200km的感受」本来在9月份是定了L03的，但L05发布会前得",
-      "小鹏陷交付道歉风波！MONA L03车主愤怒了！"
-    ]
+    "headlines": [],
+    "lastRunDate": "2026-11-05",
+    "p50Before": "2027-02-01",
+    "p50After": "2027-02-01"
   },
   "prediction": {
     "asOf": "2026-11-04",

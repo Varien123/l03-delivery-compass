@@ -939,15 +939,19 @@ def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool, push: b
     data.setdefault("model", {})["calibration"] = calibration
     completed = [r for r in data.get("community", []) if r.get("status") == "delivered"]
     data["model"].setdefault("cohort", {})["sampleSize"] = len(completed)
+    after_p50 = model.compute_prediction(data)["p50"]["date"]
     auto = data.setdefault("auto", {})
     auto.update({
         "enabled": True,
         "lastRun": now().isoformat(timespec="seconds"),
+        "lastRunDate": today().isoformat(),
         "lastSuccess": now().isoformat(timespec="seconds") if not errors or added_sources else auto.get("lastSuccess"),
         "lastStatus": "ok" if not errors else "partial",
         "newSources": len(added_sources),
         "newReports": len(added_reports),
         "calibrationWeeks": calibration["weeks"],
+        "p50Before": before_p50,
+        "p50After": after_p50,
         "errors": errors[-8:],
         "adapterStats": stats,
         "headlines": [s.get("title", "") for s in added_sources[:6]],
@@ -959,7 +963,6 @@ def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool, push: b
         update.update_meta(data, new_dates)
     else:
         update.update_meta(data)
-
     changes: list[str] = []
     if added_sources:
         changes.append(f"自动抓取新增 {len(added_sources)} 条信源")
@@ -971,8 +974,6 @@ def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool, push: b
         update.append_changelog(data, changes)
         update.append_history(data, "自动更新：" + "；".join(changes))
     update.write_json(DATA_PATH, data)
-
-    after_p50 = model.compute_prediction(data)["p50"]["date"]
 
     if not no_build:
         update.build(data)

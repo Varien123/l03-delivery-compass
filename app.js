@@ -729,7 +729,43 @@
       <div class="caveat"><b>注意 ${pad2(i + 1)}</b>${esc(text)}</div>`).join('');
   }
 
+  function renderToday(p) {
+    const auto = DATA.auto || {};
+    const runRaw = String(auto.lastRun || '');
+    const runDate = auto.lastRunDate || runRaw.slice(0, 10);
+    const today = todayISO();
+    const isToday = runDate === today;
+    const strip = $('#todayStrip');
+    strip.classList.toggle('stale', !isToday);
+
+    $('#todayTitle').textContent = isToday
+      ? '今日预测已更新'
+      : runDate
+        ? '今日尚未更新'
+        : '预测尚未更新';
+    if (runRaw) {
+      const time = runRaw.slice(11, 16);
+      $('#todayRun').textContent = isToday ? `今日 ${time}` : `上次 ${runRaw.slice(5, 10)} ${time}`;
+    } else {
+      $('#todayRun').textContent = '等待首次运行';
+    }
+
+    $('#todayP50').textContent = fmtShort(p.p50.date);
+    const before = String(auto.p50Before || '');
+    const after = String(auto.p50After || p.p50.date);
+    let deltaText = '今日已重算';
+    if (/^\d{4}-\d{2}-\d{2}$/.test(before) && /^\d{4}-\d{2}-\d{2}$/.test(after)) {
+      const diff = daysBetween(before, after);
+      deltaText = diff === 0 ? '较上次不变' : diff < 0 ? `较上次提前 ${-diff} 天` : `较上次推迟 ${diff} 天`;
+    }
+    $('#todayDelta').textContent = deltaText;
+    $('#todayData').textContent = fmtMD(DATA.meta.dataThrough);
+    const added = Number(auto.newSources || 0) + Number(auto.newReports || 0);
+    $('#todayNew').textContent = added;
+  }
+
   function renderAll(p) {
+    renderToday(p);
     renderHero(p);
     renderScenarios(p);
     renderDistribution(p);
