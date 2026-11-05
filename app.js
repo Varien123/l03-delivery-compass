@@ -687,7 +687,7 @@
 
     $('#localCount').textContent = `本地新增 ${state.localReports.length} 条`;
     $('#localSourceCount').textContent = `本地新增 ${state.localSources.length} 条`;
-    $('#autoStatusChip').textContent = `自动 · 数据 ${fmtMD(DATA.meta.dataThrough)}`;
+    $('#autoStatusChip').textContent = `自动 · 信源 ${fmtMD(DATA.meta.dataThrough)}`;
     $('#dataThrough').textContent = fmtMD(DATA.meta.dataThrough);
     $('#footDate').textContent = DATA.meta.dataThrough;
 
