@@ -941,6 +941,9 @@ def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool, push: b
     data["model"].setdefault("cohort", {})["sampleSize"] = len(completed)
     after_p50 = model.compute_prediction(data)["p50"]["date"]
     auto = data.setdefault("auto", {})
+    same_day = auto.get("lastRunDate") == today().isoformat()
+    today_new_sources = (int(auto.get("todayNewSources", 0) or 0) if same_day else 0) + len(added_sources)
+    today_new_reports = (int(auto.get("todayNewReports", 0) or 0) if same_day else 0) + len(added_reports)
     auto.update({
         "enabled": True,
         "lastRun": now().isoformat(timespec="seconds"),
@@ -949,6 +952,8 @@ def run(max_age_days: int, dry_run: bool, no_build: bool, verbose: bool, push: b
         "lastStatus": "ok" if not errors else "partial",
         "newSources": len(added_sources),
         "newReports": len(added_reports),
+        "todayNewSources": today_new_sources,
+        "todayNewReports": today_new_reports,
         "calibrationWeeks": calibration["weeks"],
         "p50Before": before_p50,
         "p50After": after_p50,

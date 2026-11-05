@@ -760,7 +760,7 @@
     }
     $('#todayDelta').textContent = deltaText;
     $('#todayData').textContent = fmtMD(DATA.meta.dataThrough);
-    const added = Number(auto.newSources || 0) + Number(auto.newReports || 0);
+    const added = Number(auto.todayNewSources ?? auto.newSources ?? 0) + Number(auto.todayNewReports ?? auto.newReports ?? 0);
     $('#todayNew').textContent = added;
   }
 

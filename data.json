@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0.0",
-    "generatedAt": "2026-11-05T10:01:59+08:00",
+    "generatedAt": "2026-11-05T10:02:49+08:00",
     "dataThrough": "2026-11-04",
     "nextReview": "2026-11-05T09:00:00+08:00",
     "timezone": "Asia/Shanghai",
@@ -95,7 +95,7 @@
       "windowWeeks": 0.0,
       "cohortWeeks": 0.03,
       "riskWeeks": 0.0,
-      "updatedAt": "2026-11-05T10:01:59+08:00",
+      "updatedAt": "2026-11-05T10:02:49+08:00",
       "note": "L03 最新月交付 20,000 台；增程周期 未抓到；自动样本 1 条"
     }
   },
@@ -826,8 +826,8 @@
   ],
   "auto": {
     "enabled": true,
-    "lastRun": "2026-11-05T10:01:59+08:00",
-    "lastSuccess": "2026-11-05T10:01:59+08:00",
+    "lastRun": "2026-11-05T10:02:49+08:00",
+    "lastSuccess": "2026-11-05T10:02:49+08:00",
     "lastStatus": "ok",
     "newSources": 0,
     "newReports": 0,
@@ -843,11 +843,11 @@
       }
     },
     "adapterStats": {
-      "official": {
-        "official_cards": 8
-      },
       "ithome": {
         "ithome_matches": 1
+      },
+      "official": {
+        "official_cards": 8
       },
       "bbs": {
         "bbs_candidates": 3
@@ -859,6 +859,8 @@
     "headlines": [],
     "lastRunDate": "2026-11-05",
     "p50Before": "2027-02-01",
-    "p50After": "2027-02-01"
+    "p50After": "2027-02-01",
+    "todayNewSources": 2,
+    "todayNewReports": 0
   }
 }
