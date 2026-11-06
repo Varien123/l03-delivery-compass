@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0.0",
-    "generatedAt": "2026-11-05T10:06:17+08:00",
+    "generatedAt": "2026-11-06T14:02:59+08:00",
     "dataThrough": "2026-11-04",
     "nextReview": "2026-11-05T09:00:00+08:00",
     "timezone": "Asia/Shanghai",
@@ -90,12 +90,12 @@
       }
     ],
     "calibration": {
-      "weeks": 0.11,
+      "weeks": -0.01,
       "capacityWeeks": 0.08,
       "windowWeeks": 0.0,
       "cohortWeeks": 0.03,
-      "riskWeeks": 0.0,
-      "updatedAt": "2026-11-05T10:06:17+08:00",
+      "riskWeeks": -0.12,
+      "updatedAt": "2026-11-06T14:02:59+08:00",
       "note": "L03 最新月交付 20,000 台；增程周期 未抓到；自动样本 1 条"
     }
   },
@@ -106,7 +106,7 @@
       "p10": "2027-01-22",
       "p90": "2027-02-25",
       "confidence": 0.64,
-      "note": "自动更新：自动抓取新增 2 条信源"
+      "note": "自动更新：自动抓取新增 4 条信源；自动校准 -0.01 周"
     }
   ],
   "capacity": {
@@ -616,6 +616,32 @@
       "id": "auto-s-20261104162328-4"
     },
     {
+      "date": "2026-11-03",
+      "tier": "B",
+      "publisher": "搜狐网",
+      "title": "小鹏姜文就MONA L03交付致歉 称最新交付周期已缩短",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9lOHF4cm9hdm54d3ZuUzB0eWdQYjRWVmNZb2R1TUdQd3NicVQ5YnNPVkhKR1Y5THlhM2lWemdja2FpS1VTQlFqYTMtT2pmdjBOOGJORy1VSTU3LVE3U2JVRA?oc=5",
+      "claim": "小鹏姜文就MONA L03交付致歉 称最新交付周期已缩短",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261106140259-1"
+    },
+    {
+      "date": "2026-11-03",
+      "tier": "B",
+      "publisher": "手机新浪网",
+      "title": "就MONA L03交付问题，小鹏高管道歉！网友质疑，评论区炸开了锅",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBTS1d5cUtTTW0zU2FoaFNMbWp5YVMyczgwNFR3UWxaMGt6cmpLX2k4dlNRTC1ucGtsQ1BDakpiT3BsYlRXRXVGbjJtOUNVT3JEeDFUemlaM1AwWVhUX2xOZWJDS0tNbmpKRWcydzVnQ21BZW8?oc=5",
+      "claim": "就MONA L03交付问题，小鹏高管道歉！网友质疑，评论区炸开了锅",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261106140259-3"
+    },
+    {
       "date": "2026-11-02",
       "tier": "B",
       "publisher": "手机新浪网",
@@ -668,6 +694,19 @@
       "id": "auto-s-20261104162328-8"
     },
     {
+      "date": "2026-11-02",
+      "tier": "B",
+      "publisher": "凤凰网",
+      "title": "【网通社快报】小鹏MONA L03车型10月交付超2万台 连续3个月实现增长",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE0taEJaM1k3QkYyMnUwcktEeFdoR3piNmJjRE5TQm1JWDA4QUFOOThDaXhEc0tlamFUN0FEcXpCZDZTVGI4alJ3aWtGLXI?oc=5",
+      "claim": "【网通社快报】小鹏MONA L03车型10月交付超2万台 连续3个月实现增长",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261106140259-2"
+    },
+    {
       "date": "2026-11-01",
       "tier": "B",
       "publisher": "汽车之家",
@@ -679,6 +718,19 @@
       "status": "active",
       "auto": true,
       "id": "auto-s-20261104162328-9"
+    },
+    {
+      "date": "2026-11-01",
+      "tier": "B",
+      "publisher": "汽车之家",
+      "title": "小鹏汽车 2026 年 8 月销量 3.9万辆",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFAycjNtQ0RPZVRORnJTeWJLd2Q3WnJVMElabURCUU5GZWIxT0pqYjJrRWE4YnQ5Um1kMlJESG14SjdzcmpNYUlRcGJNb2RzNUxkWkFlTlFROEhFYkk?oc=5",
+      "claim": "小鹏汽车 2026 年 8 月销量 3.9万辆",
+      "confidence": 0.82,
+      "usedFor": "media",
+      "status": "active",
+      "auto": true,
+      "id": "auto-s-20261106140259-4"
     },
     {
       "date": "2026-10-31",
@@ -822,45 +874,58 @@
       "changes": [
         "自动抓取新增 2 条信源"
       ]
+    },
+    {
+      "date": "2026-11-04",
+      "version": "1.0.0",
+      "changes": [
+        "自动抓取新增 4 条信源",
+        "自动校准 -0.01 周"
+      ]
     }
   ],
   "auto": {
     "enabled": true,
-    "lastRun": "2026-11-05T10:06:17+08:00",
-    "lastSuccess": "2026-11-05T10:06:17+08:00",
+    "lastRun": "2026-11-06T14:02:59+08:00",
+    "lastSuccess": "2026-11-06T14:02:59+08:00",
     "lastStatus": "ok",
-    "newSources": 0,
+    "newSources": 4,
     "newReports": 0,
-    "calibrationWeeks": 0.11,
+    "calibrationWeeks": -0.01,
     "errors": [],
     "signals": {
       "groupMonthly": {
         "2026-10": 50237
       },
-      "lastFactDate": "2026-11-02",
+      "lastFactDate": "2026-11-03",
       "l03Monthly": {
         "2026-10": 20000
       }
     },
     "adapterStats": {
       "ithome": {
-        "ithome_matches": 1
+        "ithome_matches": 0
       },
       "official": {
         "official_cards": 8
       },
       "bbs": {
-        "bbs_candidates": 3
+        "bbs_candidates": 6
       },
       "google": {
-        "google_matches": 27
+        "google_matches": 26
       }
     },
-    "headlines": [],
-    "lastRunDate": "2026-11-05",
+    "headlines": [
+      "小鹏姜文就MONA L03交付致歉 称最新交付周期已缩短",
+      "【网通社快报】小鹏MONA L03车型10月交付超2万台 连续3个月实现增长",
+      "就MONA L03交付问题，小鹏高管道歉！网友质疑，评论区炸开了锅",
+      "小鹏汽车 2026 年 8 月销量 3.9万辆"
+    ],
+    "lastRunDate": "2026-11-06",
     "p50Before": "2027-02-01",
     "p50After": "2027-02-01",
-    "todayNewSources": 2,
+    "todayNewSources": 4,
     "todayNewReports": 0
   }
 }
